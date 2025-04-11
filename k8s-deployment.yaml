@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dino-game-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dino-game
+  template:
+    metadata:
+      labels:
+        app: dino-game
+    spec:
+      containers:
+      - name: dino-game
+        image: vishnukbhasker/dino-game:latest
+        ports:
+        - containerPort: 80
